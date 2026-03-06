@@ -1,0 +1,58 @@
+<div class="title">
+  <h3>Task Management</h3>
+</div>
+
+<div class="logout-btn">
+  <button (click)="logout()">Logout</button>
+</div>
+<app-addtask (refreshTaskList)="refreshTaskList($event)"></app-addtask>
+
+<!-- task-list.component.html -->
+<div class="task-list">
+  <h3>Task List</h3>
+  <div class="filter-buttons">
+    <button (click)="filter = 'all'" [class.active]="filter === 'all'">
+      All ({{ tasks.length }})
+    </button>
+    <button
+      (click)="filter = 'completed'"
+      [class.active]="filter === 'completed'"
+    >
+      Completed ({{ completedCount }})
+    </button>
+    <button (click)="filter = 'pending'" [class.active]="filter === 'pending'">
+      Pending ({{ pendingCount }})
+    </button>
+  </div>
+
+  <li *ngFor="let task of filteredTasks">
+  <!-- 🔹 View Mode -->
+  <div *ngIf="!task.isEditing" class="change-status">
+    <strong [class.completed]="task.completed">{{ task.heading }}</strong>
+    <p [class.completed]="task.completed">{{ task.details }}</p>
+    <button (click)="task.showActions = !task.showActions">
+      Change Status
+    </button>
+    <div *ngIf="task.showActions" class="status-button">
+      <button (click)="markComplete(task)" [disabled]="task.completed">
+        Mark Complete
+      </button>
+      <button (click)="editTask(task)" [disabled]="task.completed">
+        Edit
+      </button>
+      <div class="delete">
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔹 Edit Mode -->
+  <div *ngIf="task.isEditing" class="change-status">
+    <input [(ngModel)]="task.heading" name="heading_{{task.id}}" />
+    <textarea [(ngModel)]="task.details" name="details_{{task.id}}"></textarea>
+    <button (click)="saveTask(task)">Save</button>
+    <button (click)="task.isEditing = false">Back</button> <!-- Use this to exit edit -->
+  </div>
+</li>
+  
+</div>

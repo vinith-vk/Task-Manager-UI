@@ -1,0 +1,7 @@
+<!-- add-task.component.html -->
+<div class="add-task">
+  <h3>Add Task</h3>
+  <input [(ngModel)]="newHeading" placeholder="Task Heading" />
+  <textarea [(ngModel)]="newDetails" placeholder="Task Details"></textarea>
+  <button (click)="addTask()" [disabled]="!newHeading.trim() || !newDetails.trim()">Add task</button>
+</div>

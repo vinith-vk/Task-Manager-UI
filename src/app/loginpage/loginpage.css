@@ -1,0 +1,91 @@
+/* Full-page center layout */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/* Login container */
+.Loginpage {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.Loginpage h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Labels */
+.Loginpage label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Inputs */
+.Loginpage input[type="text"],
+.Loginpage input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Options row */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Forgot Password link */
+.forgotpassword {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.forgotpassword:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.Loginpage button {
+  width: 100%;
+  padding: 5px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Loginpage button:hover {
+  background-color: #0056b3;
+}
+
+.Loginpage button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
